@@ -187,7 +187,7 @@ img {
 .header {
   backdrop-filter: blur(10px);
   background: rgba($color: #fff, $alpha: 0.7);
-  border-bottom: 1px solid var(--color-grey3);
+  border-bottom: 0.056rem solid var(--color-grey3);
   position: fixed;
   top: 0;
   left: 0;
@@ -460,14 +460,6 @@ img {
     font-family: "Syncopate", sans-serif;
     font-weight: 700;
     text-transform: capitalize;
-    // opacity: 0;
-    // transform: translateY(1.667rem);
-    // transition: all 0.8s ease-in-out;
-
-    // &.animate {
-    //   opacity: 1;
-    //   transform: translateY(0);
-    // }
   }
 
   &-frame {
@@ -526,7 +518,6 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    // background-image: repeating-linear-gradient(0deg, #3b3a38, #3b3a38 33.3%, #ffffff00 0px, #ffffff00 67%);
   }
 
   .infoBox {
@@ -540,7 +531,6 @@ img {
       font-size: 1.389rem;
       font-weight: 700;
       font-family: "Syncopate", sans-serif;
-      //font-family: "Montserrat", sans-serif;
       text-transform: capitalize;
     }
 
