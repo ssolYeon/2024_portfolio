@@ -702,8 +702,10 @@ img {
   color: var(--color-grey2);
   text-align: center;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.556rem;
   padding-bottom: 2.778rem;
   position: relative;
   height: 10.625rem;
@@ -711,6 +713,11 @@ img {
 }
 .footer small {
   font-size: 0.722rem;
+}
+.footer a {
+  color: var(--color-grey2);
+  font-weight: 700;
+  font-size: 0.778rem;
 }
 .footer:before {
   content: "";

@@ -107,7 +107,6 @@
   const playerNameElems = document.querySelectorAll(".playerBox-name span");
   const scrollContent = document.querySelector(".scrollCont");
   const runningWave = document.querySelector(".playerBox-runningWave");
-  // let currentBubbleItem = bubbleElems[0];
   let currentImgItem = playerImgElems[0];
   let currentNameItem = playerNameElems[0];
 
@@ -149,13 +148,11 @@
   }
 
   function activate() {
-    // currentBubbleItem.classList.add("active");
     currentImgItem.classList.add("active");
     currentNameItem.classList.add("active");
   }
 
   function inactivate() {
-    // currentBubbleItem.classList.remove("active");
     currentImgItem.classList.remove("active");
     currentNameItem.classList.remove("active");
   }
@@ -171,7 +168,6 @@
       if (boundingRect > window.innerHeight * 0.1 && boundingRect < window.innerHeight * 0.8) {
         inactivate();
 
-        // currentBubbleItem = bubbleElems[bubble.dataset.index];
         currentImgItem = playerImgElems[bubble.dataset.index];
         currentNameItem = playerNameElems[bubble.dataset.index];
         activate();
