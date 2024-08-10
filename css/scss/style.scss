@@ -345,6 +345,8 @@ img {
     overflow: hidden;
     white-space: nowrap;
 
+    transform: translateX(0);
+
     &:has(.reverse) {
       height: 0;
       opacity: 0;
@@ -357,13 +359,13 @@ img {
     font-family: "Syncopate", sans-serif;
     font-size: 100px;
     font-weight: 700;
-    animation: marqueeAni 30000ms linear infinite;
+    animation: marqueeAni 30s linear infinite;
 
     span {
       color: var(--color-point);
     }
     &.reverse {
-      animation-name: marqueeAniReverse;
+      animation: marqueeAniReverse 30s linear infinite;
     }
   }
 }

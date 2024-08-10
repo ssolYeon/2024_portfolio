@@ -172,7 +172,7 @@ img {
 .header {
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.7);
-  border-bottom: 1px solid var(--color-grey3);
+  border-bottom: 0.056rem solid var(--color-grey3);
   position: fixed;
   top: 0;
   left: 0;
@@ -303,6 +303,7 @@ img {
   gap: 30px;
   overflow: hidden;
   white-space: nowrap;
+  transform: translateX(0);
 }
 .marqueeAni-track:has(.reverse) {
   height: 0;
@@ -314,13 +315,13 @@ img {
   font-family: "Syncopate", sans-serif;
   font-size: 100px;
   font-weight: 700;
-  animation: marqueeAni 30000ms linear infinite;
+  animation: marqueeAni 30s linear infinite;
 }
 .marqueeAni-text span {
   color: var(--color-point);
 }
 .marqueeAni-text.reverse {
-  animation-name: marqueeAniReverse;
+  animation: marqueeAniReverse 30s linear infinite;
 }
 
 @keyframes marqueeAni {
