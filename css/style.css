@@ -84,21 +84,51 @@ img {
 /* common*/
 .arrowBtns {
   display: flex;
-  align-items: center;
-  gap: 30px;
-  font-size: 1.389rem;
+  gap: 1.111rem;
+  justify-content: space-between;
 }
 .arrowBtns-link {
-  color: var(--color-grey1);
-  background: #ebebeb;
-  box-shadow: -0.167rem -0.167rem 0.278rem rgba(255, 255, 255, 0.7), 0.222rem 0.222rem 0.278rem rgba(0, 0, 0, 0.15);
-  border-radius: 1.111rem;
-  border: 0.056rem solid var(--color-grey4);
-  width: 4.444rem;
-  height: 4.444rem;
+  border-radius: 1.667rem;
+  border: 0.125rem solid var(--color-point);
+  padding: 0.556rem 1.111rem;
+  position: relative;
+  overflow: hidden;
+}
+.arrowBtns-link span {
+  font-weight: 600;
+  color: var(--color-point);
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.167rem;
+  position: relative;
+  z-index: 1;
+  transition: 0.5s;
+}
+.arrowBtns-link ion-icon {
+  font-size: 1.667rem;
+}
+.arrowBtns-link:before {
+  content: "";
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: var(--color-point);
+  border-radius: 100%;
+  transition: 0.5s;
+}
+.arrowBtns-link:hover span {
+  font-weight: 500;
+  color: var(--color-white);
+}
+.arrowBtns-link:hover:before {
+  width: 11.111rem;
+  height: 5.556rem;
 }
 
 .eng {
@@ -143,21 +173,38 @@ img {
 .textAni {
   opacity: 0;
   transform: translateY(1.667rem);
+  -webkit-animation-name: textAni;
   animation-name: textAni;
+  -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-in-out;
   animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 .textAni.delay-03 {
+  -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s;
 }
 .textAni.delay-06 {
+  -webkit-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
 .textAni.delay-09 {
+  -webkit-animation-delay: 0.9s;
   animation-delay: 0.9s;
 }
 
+@-webkit-keyframes textAni {
+  0% {
+    opacity: 0;
+    transform: translateY(1.667rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @keyframes textAni {
   0% {
     opacity: 0;
@@ -170,6 +217,7 @@ img {
 }
 /* header */
 .header {
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.7);
   border-bottom: 0.056rem solid var(--color-grey3);
@@ -303,7 +351,6 @@ img {
   gap: 30px;
   overflow: hidden;
   white-space: nowrap;
-  transform: translateX(0);
 }
 .marqueeAni-track:has(.reverse) {
   height: 0;
@@ -315,21 +362,39 @@ img {
   font-family: "Syncopate", sans-serif;
   font-size: 100px;
   font-weight: 700;
+  -webkit-animation: marqueeAni 30s linear infinite;
   animation: marqueeAni 30s linear infinite;
 }
 .marqueeAni-text span {
   color: var(--color-point);
 }
 .marqueeAni-text.reverse {
+  -webkit-animation: marqueeAniReverse 30s linear infinite;
   animation: marqueeAniReverse 30s linear infinite;
 }
 
+@-webkit-keyframes marqueeAni {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 @keyframes marqueeAni {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(-100%);
+  }
+}
+@-webkit-keyframes marqueeAniReverse {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 @keyframes marqueeAniReverse {
@@ -365,6 +430,7 @@ img {
   position: absolute;
   top: 0;
   left: 0;
+  -webkit-animation: radiusAni 7s linear infinite;
   animation: radiusAni 7s linear infinite;
   z-index: -1;
 }
@@ -385,6 +451,17 @@ img {
   margin-bottom: 50px;
 }
 
+@-webkit-keyframes radiusAni {
+  0%, 100% {
+    border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+  }
+  33% {
+    border-radius: 69% 31% 21% 79%/72% 48% 52% 28%;
+  }
+  66% {
+    border-radius: 75% 25% 65% 35%/24% 80% 20% 76%;
+  }
+}
 @keyframes radiusAni {
   0%, 100% {
     border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
@@ -414,6 +491,7 @@ img {
   justify-content: center;
   height: 100vh;
   overflow: hidden;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   left: 0;
@@ -443,6 +521,7 @@ img {
   height: 100%;
   border-radius: 30px;
   overflow: hidden;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   background: linear-gradient(150deg, var(--color-blue), var(--color-yellow));
 }
@@ -522,6 +601,7 @@ img {
   gap: 140px;
   height: 100vh;
   overflow: hidden;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   left: 0;
@@ -529,9 +609,7 @@ img {
 .scrollCont .playerImg {
   width: 380px;
   height: 380px;
-  cursor: pointer;
   position: relative;
-  animation: clickBounceAni 1s cubic-bezier(0.27, 0.8, 0.87, 0.41) infinite;
 }
 .scrollCont .playerImg-item {
   background: var(--color-white);
@@ -621,20 +699,24 @@ img {
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
 }
-.scrollCont .arrowBtns {
-  justify-content: flex-end;
+.scrollCont .playerBox-icons {
+  text-align: right;
+  font-size: 1.944rem;
+}
+.scrollCont .playerBox-icons ion-icon[name=heart] {
+  color: var(--color-pink);
+  margin-right: 0.556rem;
 }
 .scrollCont-speech {
   position: relative;
   padding-bottom: 1px;
-  pointer-events: none;
   line-height: 1.2;
 }
 .scrollCont .speechBubble {
   margin-bottom: 60vh;
   padding: 30px;
   border-radius: 0.556rem;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   box-shadow: 0.167rem 0.167rem 0.167rem rgba(0, 0, 0, 0.15);
   max-width: 895px;
 }
@@ -642,14 +724,6 @@ img {
   margin-bottom: 0.833rem;
 }
 
-@keyframes clickBounceAni {
-  0%, 100% {
-    transform: scale(1);
-  }
-  70% {
-    transform: scale(0.97);
-  }
-}
 /* contactCont */
 .contactCont-flex {
   display: flex;
@@ -729,6 +803,7 @@ img {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  -webkit-animation: radiusAni 7s linear infinite;
   animation: radiusAni 7s linear infinite;
   z-index: -1;
   opacity: 0.4;
@@ -746,12 +821,34 @@ img {
   font-weight: 600;
   margin-bottom: 0.833rem;
 }
+.workExplain-link {
+  position: relative;
+  color: var(--color-grey1);
+}
+.workExplain-link:before {
+  content: "";
+  -webkit-animation: blinkAni 1s linear infinite;
+  animation: blinkAni 1s linear infinite;
+  background-image: url("../images/icon_arrow_black.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  right: -1.944rem;
+  width: 1.444rem;
+  height: 1.667rem;
+  transform: rotate(-45deg);
+}
 .workExplain-summary {
   margin-bottom: 1.667rem;
   font-size: 0.889rem;
 }
 .workExplain-text {
   font-family: "Gowun Dodum", sans-serif;
+}
+.workExplain-text ~ .arrowBtns {
+  margin-top: 2.778rem;
 }
 .workExplain-span + span {
   margin-left: 1.944rem;
@@ -760,6 +857,24 @@ img {
   color: var(--color-point);
 }
 
+@-webkit-keyframes blinkAni {
+  0%, 100% {
+    background-image: url("../images/icon_arrow_black.svg");
+  }
+  50% {
+    background-image: url("../images/icon_arrow_color.svg");
+    transform: rotate(-45deg) scale(0.97) translateX(-0.167rem);
+  }
+}
+@keyframes blinkAni {
+  0%, 100% {
+    background-image: url("../images/icon_arrow_black.svg");
+  }
+  50% {
+    background-image: url("../images/icon_arrow_color.svg");
+    transform: rotate(-45deg) scale(0.97) translateX(-0.167rem);
+  }
+}
 .attachedFile {
   display: flex;
   flex-wrap: wrap;
@@ -792,6 +907,8 @@ img {
 }
 .attachedFile-image {
   flex: 1;
+  height: -webkit-max-content;
+  height: -moz-max-content;
   height: max-content;
   background-color: var(--color-white);
 }
@@ -802,14 +919,6 @@ img {
 .attachedFile video,
 .attachedFile img {
   max-width: 100%;
-}
-.attachedFile .arrowBtns {
-  width: 100%;
-  justify-content: center;
-  margin-top: 2.778rem;
-}
-.attachedFile .arrowBtns-link:active {
-  box-shadow: inset 0.222rem 0.222rem 0.278rem rgba(0, 0, 0, 0.15), inset -0.167rem -0.167rem 0.278rem rgba(255, 255, 255, 0.7);
 }
 
 @media screen and (max-width: 1600px) {
@@ -851,10 +960,6 @@ img {
 }
 /* **************** 노트북 **************** */
 @media screen and (max-width: 1024px) {
-  /* common */
-  .arrowBtns {
-    gap: 1.111rem;
-  }
   /* header */
   .header .btn-hamburger {
     display: block;
@@ -863,6 +968,8 @@ img {
     position: absolute;
     right: 0;
     top: 4.444rem;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     background: rgba(255, 255, 255, 0.8);
     padding: 0 1.111rem;
@@ -967,8 +1074,8 @@ img {
     width: 430px;
     height: 113px;
   }
-  .scrollCont .playerBox .arrowBtns {
-    justify-content: center;
+  .scrollCont .playerBox-icons {
+    text-align: center;
   }
   .scrollCont .speechBubble {
     max-width: 100%;
